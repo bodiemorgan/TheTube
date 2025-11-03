@@ -1,120 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tube</title>
-    <style>
-        body {
-            font-family: "Comic Sans MS", Arial, sans-serif;
-            background-color: #fffcaa;
-            color: #222;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #ff0000;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 36px;
-            text-shadow: 2px 2px #000;
-        }
-
-        nav {
-            background-color: #00ccff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: #fff;
-            background-color: #ff6600;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            background-color: #ffcc00;
-            color: #000;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        h2 {
-            color: #ff0066;
-            text-shadow: 1px 1px #fff;
-        }
-
-        .video-container {
-            margin: 20px 0;
-            border: 3px dashed #00cc00;
-            padding: 10px;
-            border-radius: 10px;
-            background-color: #ffffcc;
-        }
-
-        video {
-            width: 100%;
-            max-width: 640px;
-            border: 2px solid #ff00ff;
-        }
-
-        footer {
-            background-color: #00ccff;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .fun-text {
-            color: #ff00ff;
-            font-size: 18px;
-            font-weight: bold;
-            text-shadow: 1px 1px #000;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tube</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #cccccc;
+    color: #1c3d5a;
+}
+header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 2px solid #1c3d5a;
+}
+.logo {
+    font-weight: bold;
+    font-size: 28px;
+    color: black;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+nav {
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: #e0e0e0;
+}
+nav a {
+    color: #1c3d5a;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+nav a:hover { text-decoration: underline; }
+main { padding: 20px; max-width: 900px; margin: auto; }
+section { display: none; }
+section.active { display: block; }
+h2 { border-bottom: 1px solid #1c3d5a; padding-bottom: 5px; }
+.video-list div, .blog-post { margin: 8px 0; display: flex; align-items: center; justify-content: space-between; }
+.video-item { text-decoration: underline; cursor: pointer; flex-grow: 1; }
+video { display: block; margin: 15px 0; width: 100%; max-width: 800px; border: 2px solid #1c3d5a; border-radius: 5px; }
+.blog-post { background-color: #d9d9d9; padding: 15px; margin-bottom: 15px; border-left: 4px solid #1c3d5a; border-radius: 4px; }
+.blog-post img { max-width: 100%; margin: 10px 0; border-radius: 4px; }
+.blog-post h3 { margin: 0 0 5px 0; }
+.blog-post p { margin: 5px 0; }
+footer { text-align: center; padding: 10px; border-top: 2px solid #1c3d5a; margin-top: 40px; }
+input, textarea { width: 100%; margin: 5px 0 15px 0; padding: 8px; border-radius: 4px; border: 1px solid #1c3d5a; background: #fff; color: #000; }
+button { padding: 6px 10px; margin-left: 10px; cursor: pointer; border: none; border-radius: 4px; background-color: #1c3d5a; color: #fff; }
+button:hover { background-color: #14314d; }
+</style>
 </head>
 <body>
-    <header>The Tube</header>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Trending</a>
-        <a href="#">Upload</a>
-        <a href="#">Contact</a>
-    </nav>
+<header>
+    <div class="logo">The Tube</div>
+</header>
 
-    <main>
-        <h2>Featured Videos</h2>
+<nav>
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('videos')">Videos</a>
+    <a onclick="showSection('blog')">Blog</a>
+</nav>
 
-        <div class="video-container">
-            <p class="fun-text">Watch this awesome video!</p>
-            <video controls>
-                <source src="video1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+<main>
+    <!-- Home Section -->
+    <section id="home" class="active">
+        <h2>Welcome to The Tube</h2>
+        <p>This is the homepage. Navigate to Videos or Blog to explore content!</p>
+    </section>
 
-        <div class="video-container">
-            <p class="fun-text">Another classic clip!</p>
-            <video controls>
-                <source src="video2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+    <!-- Videos Section -->
+    <section id="videos">
+        <h2>Videos</h2>
+        <div id="videoList"></div>
+        <h3>Add a Video</h3>
+        <input type="text" id="videoName" placeholder="Video Name">
+        <input type="file" id="videoFile" accept="video/mp4">
+        <button onclick="addVideo()">Add Video</button>
+        <video id="player" controls>
+            <source src="" type="video/mp4">
+            Your browser does not support HTML video.
+        </video>
+    </section>
 
-    </main>
+    <!-- Blog Section -->
+    <section id="blog">
+        <h2>Blog</h2>
+        <div id="blogList"></div>
+        <h3>Add a Blog Post</h3>
+        <input type="text" id="blogTitle" placeholder="Title">
+        <textarea id="blogContent" placeholder="Content (text or image URL)"></textarea>
+        <button onclick="addBlog()">Add Blog Post</button>
+    </section>
+</main>
 
-    <footer>
-        &copy; 2004 The Tube – Bringing you retro videos since forever!
-    </footer>
+<footer>&copy; The Tube – Share your videos and ideas.</footer>
+
+<script>
+// Navigation
+function showSection(sectionId){
+    document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+}
+
+// LocalStorage helper
+function save(key, value){ localStorage.setItem(key, JSON.stringify(value)); }
+function load(key){ return JSON.parse(localStorage.getItem(key) || "[]"); }
+
+// Videos
+let videos = load('videos');
+function renderVideos(){
+    const list = document.getElementById('videoList');
+    list.innerHTML = '';
+    videos.forEach((v,i) => {
+        const container = document.createElement('div');
+        const div = document.createElement('div');
+        div.className = 'video-item';
+        div.textContent = v.name;
+        div.onclick = () => playVideo(v.url);
+
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.onclick = () => { videos.splice(i,1); save('videos',videos); renderVideos(); };
+
+        container.appendChild(div);
+        container.appendChild(delBtn);
+        list.appendChild(container);
+    });
+}
+function addVideo(){
+    const name = document.getElementById('videoName').value.trim();
+    const fileInput = document.getElementById('videoFile');
+    const file = fileInput.files[0];
+    if(!name || !file) return alert("Please enter a name and select a file.");
+
+    const url = URL.createObjectURL(file);
+    videos.push({name,url});
+    save('videos', videos);
+    renderVideos();
+    document.getElementById('videoName').value='';
+    fileInput.value='';
+}
+function playVideo(url){
+    const player = document.getElementById('player');
+    player.src = url;
+    player.play();
+}
+renderVideos();
+
+// Blog
+let blogs = load('blogs');
+function renderBlogs(){
+    const list = document.getElementById('blogList');
+    list.innerHTML = '';
+    blogs.forEach((b,i) => {
+        const container = document.createElement('div');
+        container.className = 'blog-post';
+        container.innerHTML = `<h3>${b.title}</h3><p>${b.content}</p>`;
+
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.onclick = () => { blogs.splice(i,1); save('blogs',blogs); renderBlogs(); };
+
+        container.appendChild(delBtn);
+        list.appendChild(container);
+    });
+}
+function addBlog(){
+    const title = document.getElementById('blogTitle').value.trim();
+    const content = document.getElementById('blogContent').value.trim();
+    if(title && content){
+        blogs.push({title,content});
+        save('blogs', blogs);
+        renderBlogs();
+        document.getElementById('blogTitle').value='';
+        document.getElementById('blogContent').value='';
+    }
+}
+renderBlogs();
+</script>
+
 </body>
 </html>
+
+
