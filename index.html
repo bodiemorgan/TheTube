@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tube</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", Arial, sans-serif;
+            background-color: #fffcaa;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ff0000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 36px;
+            text-shadow: 2px 2px #000;
+        }
+
+        nav {
+            background-color: #00ccff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            background-color: #ff6600;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #ffcc00;
+            color: #000;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #ff0066;
+            text-shadow: 1px 1px #fff;
+        }
+
+        .video-container {
+            margin: 20px 0;
+            border: 3px dashed #00cc00;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #ffffcc;
+        }
+
+        video {
+            width: 100%;
+            max-width: 640px;
+            border: 2px solid #ff00ff;
+        }
+
+        footer {
+            background-color: #00ccff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .fun-text {
+            color: #ff00ff;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 1px 1px #000;
+        }
+    </style>
+</head>
+<body>
+    <header>The Tube</header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Trending</a>
+        <a href="#">Upload</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <main>
+        <h2>Featured Videos</h2>
+
+        <div class="video-container">
+            <p class="fun-text">Watch this awesome video!</p>
+            <video controls>
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="video-container">
+            <p class="fun-text">Another classic clip!</p>
+            <video controls>
+                <source src="video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; 2004 The Tube – Bringing you retro videos since forever!
+    </footer>
+</body>
+</html>
